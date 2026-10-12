@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Harper LaFleur</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #0d0d0d; color: #f0ece4; font-family: 'Georgia', serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 40px 20px;
+    }
+    h1 { font-size: 2rem; letter-spacing: 0.12em; font-weight: normal; margin-bottom: 48px; }
+    .links { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 420px; }
+    a, .gate-link {
+      display: block; text-align: center; padding: 16px 24px; border: 1px solid #3a3530;
+      color: #f0ece4; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.15em;
+      text-transform: uppercase; transition: background 0.2s, border-color 0.2s;
+      cursor: pointer; background: none; width: 100%; font-family: 'Georgia', serif;
+    }
+    a:hover, .gate-link:hover { background-color: #1e1a17; border-color: #7a6f65; }
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      z-index: 100; align-items: center; justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #0d0d0d; border: 1px solid #3a3530; padding: 40px 32px;
+      max-width: 360px; width: 90%; text-align: center;
+    }
+    .modal p { font-size: 0.9rem; letter-spacing: 0.1em; line-height: 1.8; color: #a89f94; margin-bottom: 32px; }
+    .modal-title { font-size: 1.1rem; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .modal-buttons { display: flex; gap: 12px; justify-content: center; }
+    .modal-buttons button {
+      padding: 12px 28px; border: 1px solid #3a3530; background: none; color: #f0ece4;
+      font-family: 'Georgia', serif; font-size: 0.85rem; letter-spacing: 0.15em;
+      text-transform: uppercase; cursor: pointer;
+    }
+    .modal-buttons .btn-no { color: #a89f94; }
+  </style>
+</head>
+<body>
+  <h1>Harper LaFleur</h1>
+  <div class="links">
+    <button class="gate-link" onclick="openGate('https://onlyfans.com/itsharperlafleur/c7')">Exclusive Page 🌶️</button>
+    <a href="https://t.me/+bNKNOfJMbyM1NDAx" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://x.com/HarperLafleur00" target="_blank" rel="noopener">X</a>
+  </div>
+  <div class="modal-overlay" id="ageModal">
+    <div class="modal">
+      <div class="modal-title">18+ Content</div>
+      <p>This link leads to content intended for adults only. By continuing, you confirm that you are 18 years of age or older.</p>
+      <div class="modal-buttons">
+        <button onclick="confirmAge()">I am 18+</button>
+        <button class="btn-no" onclick="closeGate()">No, go back</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    let pendingUrl = '';
+    function openGate(url) { pendingUrl = url; document.getElementById('ageModal').classList.add('active'); }
+    function confirmAge() { document.getElementById('ageModal').classList.remove('active'); window.open(pendingUrl, '_blank'); pendingUrl = ''; }
+    function closeGate() { document.getElementById('ageModal').classList.remove('active'); pendingUrl = ''; }
+  </script>
+</body>
+</html>
